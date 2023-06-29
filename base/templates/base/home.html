@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<div class="links">
+    <a href="#">Fill New Form</a>
+    <a href="#">Update Form</a>
+    <a href="#">Pay Fees</a>
+    <a href="#">Admission Form Dates</a>
+</div>
+{% else %}
+<div class="hero">
+    <h1>ELITE COLLEGE</h1>
+    <p>Value For The Valuable</p>
+    <small>Admissions Currently Open!</small>
+    <button>Apply Now</button>
+</div>
+{% endif %}
+
+{% endblock content %}

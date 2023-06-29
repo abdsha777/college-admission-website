@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+    {% include 'nav.html' %}
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <main>
+        {% block content %}
+        
+        {% endblock content %}
+    </main>
+    <footer>
+        <div class="top">
+            <div>
+                <img src="{% static 'images/+4.png' %}" alt="">
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <hr>
+                <p>
+                    Email: eliteCollege@gmail.com
+                    <br>
+                    Telephone: 1800-777-777-777
+                </p>
+            </div>
+            <div>
+                <h3>Our Goals</h3>
+                <hr>
+                <p>
+                    To educate the people that will make the future.
+                    We want to provide the edcation that is the best.
+                </p>
+            </div>
+            <div>
+                <h3>About Us</h3>
+                <hr>
+                <p>
+                    We are the Elite Development Team. We built blazzing fast solutions with the latest tech. To contact us you must joint the ELITE, you must become the ELITE. 
+                </p>
+            </div>
+        </div>
+        <div class="bottom">
+            <h3>Elite Solutions</h3>
+            <h3>&#169;All Rights Reserved</h3>
+        </div>
+    </footer>
+</body>
+<script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const menu = document.querySelector('.menu');
+    menuBtn.addEventListener('click',()=>{
+        menu.classList.toggle('active')
+    })
+</script>
+</html>
