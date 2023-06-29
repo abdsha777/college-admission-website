@@ -13,11 +13,11 @@ def home(request):
 
 def loginPage(request):
     if request.method=="POST":
-        email = request.POST.get('email')
+        mobile = request.POST.get('mobile')
         password = request.POST.get('password')
         try:
-            user = User.objects.get(email=email)
-            user = authenticate(request,email=email,password=password)
+            user = User.objects.get(mobile=mobile)
+            user = authenticate(request,mobile=mobile,password=password)
             if user is not None:
                 login(request,user)
                 return redirect('home')
