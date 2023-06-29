@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
-from django.contrib.auth.forms import UserCreationForm 
+# from django.contrib.auth.forms import UserCreationForm 
+from .forms import MyUserCreationForm
 from django.contrib import messages
 from base.models import User
 
@@ -12,18 +13,19 @@ def home(request):
 
 def loginPage(request):
     if request.method=="POST":
-        username = request.POST.get('username').lower()
+        email = request.POST.get('email')
         password = request.POST.get('password')
         try:
-            user = User.objects.get(username=username)
+            user = User.objects.get(email=email)
+            user = authenticate(request,email=email,password=password)
+            if user is not None:
+                login(request,user)
+                return redirect('home')
+            else:
+                messages.error(request,'Password is Invalid')
         except:
             messages.error(request,"User does not exist")
-        user = authenticate(request,username=username,password=password)
-        if user is not None:
-            login(request,user)
-            return redirect('home')
-        else:
-            messages.error(request,'Password is Invalid')
+        
 
     context={'page':'login'}
     return render(request,'base/login_signup.html',context)
@@ -35,7 +37,7 @@ def logoutUser(request):
 
 def registerPage(request):
     if request.method=='POST':
-        form = UserCreationForm(request.POST)
+        form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
@@ -44,7 +46,7 @@ def registerPage(request):
             return redirect('home')
         else:
             messages.error(request,'Invalid Input')
-    form = UserCreationForm()
+    form = MyUserCreationForm()
     context={'form':form}
     for field in form:
         print(field.label)
