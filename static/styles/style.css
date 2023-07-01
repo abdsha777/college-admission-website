@@ -95,7 +95,7 @@ nav ul li:hover{
 }
 
 .login{
-    color: lightgreen;
+    color: green;
 }
 .logout{
     color: red;
@@ -177,7 +177,7 @@ nav ul li:hover{
     flex-direction: column;
     margin: 1rem 0;
 }
-.field input{
+.field input, .field select{
     background-color: var(--background);
     border: 0;
     padding: 0.5rem 0.5rem;
@@ -228,7 +228,7 @@ nav ul li:hover{
     border: 0;
     border-radius: 0.5rem;
 }
-.links a{
+.links a, .links button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -243,13 +243,22 @@ nav ul li:hover{
     transition: 250ms;
     box-shadow: 0px 3px 6px 1px rgb(120, 120, 120);
 }
-.links a:hover{
+.links a:hover , .links button:hover{
     background-color: var(--light);
     color: var(--dark);
-    font-weight: 600;
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
 }
-
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
+}
+.heading{
+    color: var(--light);
+    text-align: center;
+    font-size: 3rem;
+}
 /* main end */
 
 /* footer start*/
@@ -327,6 +336,7 @@ nav ul li:hover{
     }
     .bottom h3{
         font-size: 1rem;
+        margin: 1rem 1rem;
     }
 
     .links{
@@ -342,10 +352,8 @@ nav ul li:hover{
 /* mobile end */
 /* messages */
 
-
 .messages{
     color: var(--text);
-    color: white;
 }
 
 /* messages end */

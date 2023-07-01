@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/+4.png" alt="">
+            </div>
+            <ul type="none" >
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Notices</a></li>
+            </ul>
+            <div class="menu-btn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Login</a>
+            <a href="#">About Us</a>
+            <a href="#">Notices</a>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <h1 class="heading">Choose Section</h1>
+            <div class="links">
+                <a href="#">Under Graduate</a>
+                <a href="#">Post Graduate</a>
+            </div>
+        </div>
+        <div class="container">
+            <form action="#">
+                <h2>Choose Program</h2>
+                <div class="field">
+                    <label for="classList">Select Class</label>
+                    <select name="classList" id="classList">
+                        <option value="none">---Select Class---</option>
+                        <option value="F.Y.B.C.A.">F.Y.B.C.A.</option>
+                        <option value="S.Y.B.C.A.">S.Y.B.C.A.</option>
+                    </select>
+                </div>
+                <button>LOGIN</button>
+            </form>
+        </div>
+        <div class="container">
+            <form action="#">
+                <h2>Student Details</h2>
+                <div class="field">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName">
+                </div>
+                <div class="field">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName">
+                </div>
+                <button>LOGIN</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="top">
+            <div>
+                <img src="assets/+4.png" alt="">
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <hr>
+                <p>
+                    Email: eliteCollege@gmail.com
+                    <br>
+                    Telephone: 1800-777-777-777
+                </p>
+            </div>
+            <div>
+                <h3>Our Goals</h3>
+                <hr>
+                <p>
+                    To educate the people that will make the future.
+                    We want to provide the edcation that is the best.
+                </p>
+            </div>
+            <div>
+                <h3>About Us</h3>
+                <hr>
+                <p>
+                    We are the Elite Development Team. We built blazzing fast solutions with the latest tech. To contact us you must joint the ELITE, you must become the ELITE. 
+                </p>
+            </div>
+        </div>
+        <div class="bottom">
+            <h3>Elite Solutions</h3>
+            <h3>&#169;All Rights Reserved</h3>
+        </div>
+    </footer>
+</body>
+<script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const menu = document.querySelector('.menu');
+    menuBtn.addEventListener('click',()=>{
+        menu.classList.toggle('active')
+    })
+</script>
+</html>

@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% if page == 1 %}
+<div class="wrapper">
+    <h1 class="heading">Choose Section</h1>
+    <div class="links">
+        <form action="" method='POST'>
+            {% csrf_token %}
+            <button type="submit" name="option" value="undergraduate">Under Graduate</button> 
+        </form>
+        <form action="" method='POST'>
+            {% csrf_token %}
+            <button type="submit" name="option" value="postgraduate">Post Graduate</button> 
+        </form>
+    </div>
+</div>
+{% elif page == 2 %}
+<div class="container">
+    <form action="" method='POST'>
+        {% csrf_token %}
+        <h2>Choose Program</h2>
+        <div class="field">
+            <label for="classList">Select Class</label>
+            {% comment %} <select name="classList" id="classList">
+                <option value="none">---Select Class---</option>
+                <option value="F.Y.B.C.A.">F.Y.B.C.A.</option>
+                <option value="S.Y.B.C.A.">S.Y.B.C.A.</option>
+            </select> {% endcomment %}
+            <select name="classList" id="classList">
+                <option value="none">---Select Class---</option>
+                {% for class_item in class_list %}
+                    <option value="{{ class_item }}">{{ class_item }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button name="option" value="next1">Next</button>
+    </form>
+</div>
+{% else %}
+<div class="container">
+    <form action="" method='POST'>
+        {% csrf_token %}
+        <h2>Student Details</h2>
+        {% for field in form %}
+        <div class="field">
+            {{ field.label_tag }}
+            {{field}}
+        </div>
+        {% endfor %}
+        <button name="option" value="next2">SAVE</button>
+    </form>
+    
+</div>
+{% endif %}
+
+
+{% endblock content %}
