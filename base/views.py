@@ -89,7 +89,9 @@ def form(request,pk):
         return redirect('home')
     if(request.method=='POST'):
         form = ApplicationForm(request.POST,instance=a[0])
-        print(form.fields)
-        form.save()
+        if form.is_valid():
+            form.save()
+        else:
+            messages.error(request,'Invalid Data Format')
     form = ApplicationForm(instance=a[0])
     return render(request,'base/form.html',{'page':3,"form":form})
