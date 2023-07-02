@@ -390,7 +390,7 @@ nav ul li:hover{
         margin: 1rem;
         gap: 1rem;
     }
-    .links a{
+    .links a,.links button{
         font-size: 1rem;;
         padding: 2rem;
     }
