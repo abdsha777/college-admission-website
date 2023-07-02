@@ -40,7 +40,7 @@
 </div>
 {% else %}
 <div class="container">
-    <form action="" method='POST'>
+    <form action="" method='POST' class='big-form'>
         {% csrf_token %}
         <h2>Student Details</h2>
         {% for field in form %}

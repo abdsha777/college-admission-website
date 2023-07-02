@@ -95,3 +95,7 @@ def form(request,pk):
             messages.error(request,'Invalid Data Format')
     form = ApplicationForm(instance=a[0])
     return render(request,'base/form.html',{'page':3,"form":form})
+
+def yourForms(request):
+    forms = Application.objects.filter(user = request.user)
+    return render(request,'base/yourForm.html',{"forms":forms})

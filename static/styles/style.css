@@ -18,6 +18,7 @@
 }
 body{
     background-color: var(--background);
+    /* background-color: whitesmoke; */
     margin: 0;
     padding: 0;
     font-family: 'Ysabeau Infant', sans-serif;
@@ -47,6 +48,7 @@ nav img{
 }
 nav ul{
     display: flex;
+    margin: 0.8rem 0;
 }
 nav ul li{
     font-size: 1.5rem;
@@ -166,16 +168,20 @@ nav ul li:hover{
 .container form{
     padding: 2rem;
     width: 100%;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
 }
 .container form h2{
     text-align: center;
     font-size: 3rem;
     color: var(--light);
+    grid-column: span 2;
 }
 .field{
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
+    /* margin: 1rem 1rem; */
+    margin: 1rem 0rem;
 }
 .field input, .field select{
     background-color: var(--background);
@@ -199,6 +205,7 @@ nav ul li:hover{
     font-size: 1.5rem;
     font-family: 'Poppins';
     margin-top: 0.5rem;
+    grid-column: span 2;
 }
 .container form button:hover{
     transform: translateY(2px);
@@ -228,7 +235,7 @@ nav ul li:hover{
     border: 0;
     border-radius: 0.5rem;
 }
-.links a, .links button{
+.links a,.links button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -243,11 +250,15 @@ nav ul li:hover{
     transition: 250ms;
     box-shadow: 0px 3px 6px 1px rgb(120, 120, 120);
 }
-.links a:hover , .links button:hover{
+.links a:hover,.links button:hover{
     background-color: var(--light);
     color: var(--dark);
-    /* transform: scale(1.05); */
 }
+.links a:hover{
+    font-weight: 600;
+    transform: scale(1.05);
+}
+
 .wrapper{
     display: flex;
     flex-direction: column;
@@ -259,6 +270,42 @@ nav ul li:hover{
     text-align: center;
     font-size: 3rem;
 }
+
+
+.application{
+    width: 100%;
+}
+.application fieldset{
+    margin: 1rem;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.application legend{
+    /* color: var(--text); */
+    font-size: 1.5rem;
+}
+.application a{
+    color: var(--light);
+    text-decoration: none;
+    transition: 100ms;
+}
+.application p, .application a{
+    padding: 0.5rem;
+}
+.application a:hover{
+    text-decoration: underline;
+    font-size: 1.1rem;
+}
+
+.big-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.big-form .field{
+    margin: 1rem;
+}
+
 /* main end */
 
 /* footer start*/
@@ -346,6 +393,18 @@ nav ul li:hover{
     .links a{
         font-size: 1rem;;
         padding: 2rem;
+    }
+
+    .big-form{
+        display: block;
+    }
+    .big-form .field{
+        margin: 1rem 0;
+    }
+
+    .application fieldset{
+        margin: 1rem;
+        grid-template-columns: 1fr 1fr;
     }
 }
 

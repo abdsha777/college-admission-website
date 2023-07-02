@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container">
+    {% if forms.count %}
+    <h1 class="heading">Your Applications</h1>
+        {% for form in forms %}
+            <div class="application">
+                <fieldset>
+                    <legend>Form No: {{form.id}}</legend>
+                    <a href="{% url 'form' form.id %}">Update Form</a>
+                    <a href="#">View Form</a>
+                    <a href="#">Pay Fees</a>
+                    <p>Section: UG</p>
+                    <p>Class: {{form.className}}</p>
+                    <p>Applied on: 01/01/0011</p>  
+                    <p>Last Fees Date: 13/12/2023</p>  
+                    <p>Status: {{form.status}}</p>  
+                </fieldset>
+            </div>
+        {% endfor %}
+    {% else %}
+    <h1 class="heading">You Have No Forms</h1>
+    {% endif %}
+</div>
+
+{% endblock content %}
