@@ -8,6 +8,8 @@ from django.contrib import messages
 from base.models import User,Application
 # from django.views import View
 # from django.utils.decorators import method_decorator
+from datetime import date
+
 
 # Create your views here.
 def home(request):
@@ -65,6 +67,7 @@ def fillFormPage(request):
             pass
         else:
             application = Application(user=request.user,className=request.POST.get('classList'))
+            application.status = 'pending'
             application.save()
         return redirect('form',pk=application.pk)
     elif request.method == 'POST':

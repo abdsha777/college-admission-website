@@ -21,6 +21,11 @@ class Application(models.Model):
         ('provisional', 'Provisional'),
         ('non_provisional', 'Non-Provisional'),
     ]
+    STATUS_CHOICES = [
+        ('appoved', 'Approved'),
+        ('pending', 'Pending'),
+        ('canceled', 'Canceled'),
+    ]
     id = models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     className = models.CharField(max_length=20)
@@ -57,3 +62,9 @@ class Application(models.Model):
     minority_detail = models.CharField(max_length=256, null=True,blank=True)
     computer_course = models.CharField(max_length=256, null=True,blank=True)
     specialization = models.CharField(max_length=256, null=True,blank=True)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+    last_fee_date = models.DateField(null=True,blank=True)
+    status = models.CharField(max_length=15, choices=STATUS_CHOICES,null=True,blank=True)
+    class Meta:
+        ordering=['-updated','-created']
